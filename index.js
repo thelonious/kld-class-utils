@@ -96,12 +96,12 @@ function inherit(proto) {
         throw new TypeError();
     }
 
-    if (isMethod(Object, "create")) {
+    if ("create" in Object) {
         return Object.create(proto);
     }
     else {
         function f() {};
-        f.prototype = p;
+        f.prototype = proto;
         return new f();
     }
 }
