@@ -118,8 +118,8 @@ exports.testFunctionIsNotString = function(beforeExit, assert) {
 
 // mergeProperites
 exports.testMergeProperties = function(beforeExit, assert) {
-    var obj = { a: 1, b: 2, c: 3};
-    var props = { a: 10, d: 20};
+    var obj = { a: 1, b: 2, c: 3 };
+    var props = { a: 10, d: 20 };
     var result = utils.mergeProperties(props, obj);
 
     assert.equal(true, result.hasOwnProperty('a'));
@@ -137,7 +137,7 @@ exports.testMergeProperties = function(beforeExit, assert) {
 
 // inherit
 exports.testMergeProperties = function(beforeExit, assert) {
-    var props = { a: 10, d: 20};
+    var props = { a: 10, d: 20 };
     var result = utils.inherit(props);
 
     assert.equal(false, result.hasOwnProperty('a'));
