@@ -10,9 +10,11 @@ Installation
 
 Utilities
 =========
-* isObject(o)
-* isString(s)
-* isMethod(o, m)
-* extend(obj, props)
+* isObject(item)
+* isFunction(item)
+* isString(item)
+* isMethod(item, methodName)
+* conformsToInteface(item, methodNames)
+* mergeProperties(source, target)
 * inherit(proto)
 * defineSubclass(superclass, constructor, methods, statics)

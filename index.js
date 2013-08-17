@@ -44,7 +44,30 @@ function isString(item) {
  *  @returns {Boolean}
  */
 function isMethod(item, methodName) {
-    return isObject(item) && isString(methodName) && methodName in item && isFunction(item[methodName]);
+    return isObject(item) && isString(methodName) && (methodName in item) && isFunction(item[methodName]);
+}
+
+/**
+ *  conformsToInterface
+ *
+ *  @param {Object} item
+ *  @param {Array<String>} methodNames
+ */
+function conformsToInterface(item, methodNames) {
+    var result = false;
+
+    if (isObject(item)) {
+        result = true;
+
+        for (methodNode in methodNames) {
+            if (isString(methodName) === false || (methodName in item) === false || isFunction(item[methodName]) === false) {
+                result = false;
+                break;
+            }
+        }
+    }
+
+    return result;
 }
 
 /**
@@ -73,7 +96,7 @@ function inherit(proto) {
         throw new TypeError();
     }
 
-    if ("create" in Object) {
+    if (isMethod(Object, "create")) {
         return Object.create(proto);
     }
     else {
@@ -110,6 +133,7 @@ exports.isObject = isObject;
 exports.isFunction = isFunction;
 exports.isString = isString;
 exports.isMethod = isMethod;
+exports.conformsToInterface = conformsToInterface;
 exports.mergeProperties = mergeProperties;
 exports.inherit = inherit;
 exports.defineSubclass = defineSubclass;
