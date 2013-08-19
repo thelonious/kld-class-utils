@@ -59,7 +59,9 @@ function conformsToInterface(item, methodNames) {
     if (isObject(item)) {
         result = true;
 
-        for (methodNode in methodNames) {
+        for (var i = 0; i < methodNames.length; i++) {
+            var methodName = methodNames[i];
+
             if (isString(methodName) === false || (methodName in item) === false || isFunction(item[methodName]) === false) {
                 result = false;
                 break;
